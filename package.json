@@ -1,7 +1,7 @@
 {
   "name": "displaycountcomponent",
   "version": "1.0.0",
-  "description": "",
+  "description": "Basic scaffolding steps for a starter ReactJS project using webpack 5.x",
   "main": "index.js",
   "scripts": {
     "start": "lite-server",
@@ -23,5 +23,13 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smithaagarwal/ReactJSStarter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/smithaagarwal/ReactJSStarter/issues"
+  },
+  "homepage": "https://github.com/smithaagarwal/ReactJSStarter#readme"
 }
