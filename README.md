@@ -35,8 +35,9 @@ __npm install copy-webpack-plugin --save-dev__
 __npm install source-map-loader --save-dev__
 __npm install react react-dom --save__
 
-- For `jsx` to work, install these components:
-**npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
+- For `jsx` to work, install these components using the following command:
+
+`npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev`
 
 - Also create a file `babel.config.json` in the root of project with these contents
 ```
