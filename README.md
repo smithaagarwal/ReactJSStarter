@@ -30,9 +30,13 @@ module.exports = {
     "server": {"baseDir": "./public"}
 }
 ```
+
 __npm install webpack webpack-cli --save-dev__
+
 __npm install copy-webpack-plugin --save-dev__
+
 __npm install source-map-loader --save-dev__
+
 __npm install react react-dom --save__
 
 - For `jsx` to work, install these components using the following command:
