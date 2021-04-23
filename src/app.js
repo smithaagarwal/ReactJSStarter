@@ -1,5 +1,6 @@
 import React, {Component, ComponentElement} from 'react';
 import ReactDom from 'react-dom';
+import DisplayLine from './display-line';
 
 
 export default class App extends Component {
@@ -37,7 +38,8 @@ export default class App extends Component {
 
     render () {
         const lines = this.state.numbers.map((number, index) =>
-        <li key={index.toString() }>{number}</li>);
+        <DisplayLine value = {number} key={index.toString() } />); 
+       // <li key={index.toString() }>{number}</li>);
 
         return <div>
             <h2>Numbers</h2>
