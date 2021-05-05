@@ -6,7 +6,6 @@ export default class Display extends Component {
 
         //initializing state from property
         this.state = {
-            start: this.props.start,
             count: this.props.start 
             //dont need to set every app property to state. When app changes the property it re-renders, and when it re-renders the display, the rendering pulls the updated property value.
             //but if its set to state in constructor, if the display component is already created at the app, the constructor is not called again and hence the hour minute seconds wont get updated.
@@ -27,14 +26,12 @@ export default class Display extends Component {
     //life cycle method called regularly
     //returns the new state
     //updates the state if props sent by parent is updated
+    //new state from old state and current properties
     static getDerivedStateFromProps(props, state) {
-        console.log('called...');
-        if (props.start === state.start) {
-            return {count:state.count };
+        if(props.start > state.count) {
+           return {count:props.start} ;
         }
-
-        return{ start: props.start, count: props.start};
-
+        return null;
     }
 
     increment() {
@@ -44,9 +41,7 @@ export default class Display extends Component {
     }
     render() {
         return <span>
-            <span>{this.state.count}</span>
-            <div>{this.props.hour}:{this.props.minute}:{this.props.second} </div>
-            <div> begin: {this.props.start }</div>
+                <span>{this.state.count}</span>
             </span> ;
     }
 }
