@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Name from './name';
 
 export default class Greet extends Component {
     render() {
@@ -7,7 +8,7 @@ export default class Greet extends Component {
             <span>
             Hello { this.props.name } and pets:
             <ul>
-                {this.props.pets.map(petName => <li key={petName}>  {petName}  </li> )}
+                {this.props.pets.map(petName => <li key={petName.name}>  {petName.name}  </li> )}
                 
             </ul>
             </span>
@@ -24,12 +25,5 @@ Greet.defaultProps = {
 //additional validation of the property using a function
 Greet.propTypes = {
     name: PropTypes.string,
-    pets: PropTypes.arrayOf(PropTypes.string) //helps to specify it should be an array of strings
+    pets: PropTypes.arrayOf(PropTypes.instanceOf(Name))
 }
-
-//to mark a property value is required
-// Greet.propTypes = {
-//     name: PropTypes.string.isRequired
-// }
-
-
