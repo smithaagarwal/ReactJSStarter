@@ -6,6 +6,9 @@ export default class App extends Component {
     
    
     render() {
-        return <div><Greet name='Shammi'/></div>;
+        const pets = ['Khushi','Lucky','Tuffy'];
+        return <div>
+                <Greet name='Shammi' pets={pets} />
+            </div>;
     }
 }

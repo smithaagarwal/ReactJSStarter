@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 
 export default class Greet extends Component {
     render() {
-        return <div> Namaskara { this.props.name }</div>
+        return <div> 
+            <span>
+            Hello { this.props.name } and pets:
+            <ul>
+                {this.props.pets.map(petName => <li key={petName}>  {petName}  </li> )}
+                
+            </ul>
+            </span>
+            </div>
     }
 }
 
@@ -12,24 +20,11 @@ Greet.defaultProps = {
     name: 'Sir'
 }
 
-// //to validate by providing the type for a property passed
-// Greet.propTypes = {
-//     name: PropTypes.string
-// }
 
 //additional validation of the property using a function
 Greet.propTypes = {
-    name: function(props, propertyName, componentName) {
-        console.log(`Values: ${props}`);
-        console.log(props);
-        console.log(propertyName);
-        console.log(componentName);
-        //when all validation is okay return null
-        return null;
-        //return error if validation fail
-        //return new Error("there's an error");
-
-    }
+    name: PropTypes.string,
+    pets: PropTypes.arrayOf(PropTypes.string) //helps to specify it should be an array of strings
 }
 
 //to mark a property value is required
