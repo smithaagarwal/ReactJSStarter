@@ -1,11 +1,11 @@
-import React, {Component, ComponentElement} from 'react';
-import ReactDom from 'react-dom';
+import React, {Component} from 'react';
+import Greet from './greet';
 
 
 export default class App extends Component {
     
    
     render() {
-        return 'Hello';
+        return <div><Greet name='Shammi'/></div>;
     }
 }
