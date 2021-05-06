@@ -6,6 +6,10 @@ export default class App extends Component {
     
    
     render() {
-        return <div><Greet name='Shammi'/></div>;
+        return <div>
+            <Greet name='Shammi'/>
+            <Greet name='Swaru'/>
+            <Greet />
+            </div>;
     }
 }

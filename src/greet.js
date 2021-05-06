@@ -8,9 +8,9 @@ export default class Greet extends Component {
 }
 
 //having default value for a property if nothing is passed
-Greet.defaultProps = {
-    name: 'Sir'
-}
+// Greet.defaultProps = {
+//     name: 'Sir'
+// }
 
 // //to validate by providing the type for a property passed
 // Greet.propTypes = {
@@ -20,15 +20,16 @@ Greet.defaultProps = {
 //additional validation of the property using a function
 Greet.propTypes = {
     name: function(props, propertyName, componentName) {
-        console.log(`Values: ${props}`);
-        console.log(props);
-        console.log(propertyName);
-        console.log(componentName);
-        //when all validation is okay return null
-        return null;
-        //return error if validation fail
-        //return new Error("there's an error");
+        
+        const name = props[propertyName];
 
+        if(!name) {
+            return new Error(`You didn't provide the name. Check the code in the component '${componentName}'`);
+        }
+        if(!/[A-Z]/.test(name[0])) {
+            return new Error(`The name '${name}' for the property '${propertyName}' in the component '${componentName}' should be capitalised `);
+        }
+        return null;
     }
 }
 
