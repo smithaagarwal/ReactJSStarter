@@ -24,12 +24,20 @@ Greet.defaultProps = {
 //additional validation of the property using a function
 Greet.propTypes = {
     name: PropTypes.string,
-    pets: PropTypes.arrayOf(PropTypes.string) //helps to specify it should be an array of strings
+    pets: function(properties, propName, componentName) {
+        const petNames = properties[propName];
+        const setOfPetNames = new Set(petNames);
+        if(petNames.length != setOfPetNames.size)
+            return new Error(`There are duplicate names in the list of pets ${petNames} passed in component ${componentName}`);
+
+      //  console.log(properties.name);
+        if (petNames.includes(properties.name))
+            return new Error(`The names of the pets ${petNames} should not be the same as the person ${properties.name}`);
+        return null;
+
+    }
 }
 
-//to mark a property value is required
-// Greet.propTypes = {
-//     name: PropTypes.string.isRequired
-// }
+
 
 
