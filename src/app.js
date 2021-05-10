@@ -9,24 +9,19 @@ export default class App extends Component {
         }
     }
 
-    incrementCounter() {
+    changeCount(e, value) {
         this.setState({
-            count:this.state.count+1
+            count:this.state.count+value
         });
-    }
-
-    decrementCounter() {
-        this.setState({
-            count:this.state.count-1
-        });
+        console.log(`x:${e.clientX} and y:${e.clientY}`);
     }
    
     render() {
         return <div>
             <p> Count : {this.state.count}</p>
-            <button onClick = {()=> this.incrementCounter()}>Increment</button>
-            <span>  </span>
-            <button onClick = {()=> this.decrementCounter()}>Decrement</button>
+            <button onClick = {(e)=> this.changeCount(e, 1)}>Increment</button>
+            <span> &nbsp; </span>
+            <button onClick = {(e)=> this.changeCount(e, -1)} disabled={this.state.count<1}>Decrement</button>
         </div>;
     }
 }
