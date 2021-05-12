@@ -12,8 +12,8 @@ export default class App extends Component {
         };
     }
    
-    moveRight(e) {
-        const text = e.target.textContent;
+    moveRight(text) {
+      //  const text = e.target.textContent;
         let {left, right} = this.state;
 
         left = left.filter(item => item!==text);
@@ -23,8 +23,8 @@ export default class App extends Component {
         this.setState({left,right});
     }
 
-    moveLeft(e) {
-        const text = e.target.textContent;
+    moveLeft(text) {
+       // const text = e.target.textContent;
         let {left, right} = this.state;
 
 
@@ -47,7 +47,7 @@ export default class App extends Component {
                         list.map((ignore,index)=>[left[index],right[index]])
                             .map(([leftText='',rightText=''], index)=>
                             <tr key={index}>
-                                <td onClick = {e => this.moveRight(e)}>{leftText}</td><td onClick = {e => this.moveLeft(e)}>{rightText}</td>
+                                <td onClick = {() => this.moveRight(leftText)}>{leftText}</td><td onClick = {() => this.moveLeft(rightText)}>{rightText}</td>
                             </tr>)
                         
 
